@@ -1,3 +1,4 @@
+const review = require('../models/review');
 const Review = require('../models/review');
 
 module.exports = {
@@ -12,10 +13,10 @@ function deleteReview(req, res, next) {
     'reviews._id': req.params.id,
     'reviews.user': req.user._id
   }).then(function(movie) {
-    if (!movie) return res.redirect('/movies');
-    movie.reviews.remove(req.params.id);
-    movie.save().then(function() {
-      res.redirect(`/movies/${movie._id}`);
+    if (!review) return res.redirect('/reviews');
+    review.reviews.remove(req.params.id);
+    review.save().then(function() {
+      res.redirect(`/reviews/${review._id}`);
     }).catch(function(err) {
       return next(err);
     });
@@ -23,7 +24,7 @@ function deleteReview(req, res, next) {
 }
 
 function create(req, res) {
-  Review.findById(req.params.id, function(err, movie) {
+  Review.findById(req.params.id, function(err, review) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
@@ -33,7 +34,7 @@ function create(req, res) {
     movie.reviews.push(req.body);
     movie.save(function(err) {
       // Step 5: Respond with a redirect because we've mutated data
-      res.redirect(`/movies/${movie._id}`);
+      res.redirect(`/reviews/${review._id}`);
     });
   });
 }

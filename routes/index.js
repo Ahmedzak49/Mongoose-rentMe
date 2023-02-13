@@ -1,10 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('passport');
+// Only do the following if fetch is not
+// included in Node already and you installed
+// node-fetch version 2
+const fetch = require('node-fetch');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'rentMe' });
+  const property = req.query.property;
+  console.log('property: ${property}');
+  res.render('index');
 });
 router.get('/auth/google', passport.authenticate(
   // Which passport strategy is being used?
