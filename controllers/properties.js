@@ -1,58 +1,45 @@
-const Booking = require('../models/booking');
-
+const Property = require('../models/property');
 module.exports = {
     index,
-};
+    new: newProperty,
+    create,
+    show,
+    detail,
+    delete: deleteProperty
+}
 
 function index(req, res) {
-    Movie.find({}, function(err, rentMe) {
-      res.render('movies/index', { title: 'rentMe', rentMe });
-    })
-  }
+    Property.find({}, function(err, properties) {
+        res.render('properties/index', { title: 'All Properties', properties });
+    });
+}
 
-// create a new booking
-exports.createBooking = (req, res) => {
-  const newBooking = new Booking({
-    property_id: req.body.property_id,
-    guest_id: req.body.guest_id,
-    start_date: req.body.start_date,
-    end_date: req.body.end_date,
-    num_guests: req.body.num_guests,
-    price: req.body.price,
-    currency: req.body.currency,
-    message_to_host: req.body.message_to_host,
-    status: "pending",
-    created_at: new Date(),
-    updated_at: new Date()
-  });
+function newProperty(req, res) {
+    res.render('properties/new');
+}
 
-  newBooking
-    .save()
-    .then(booking => res.json(booking))
-    .catch(err => res.status(400).json({ error: "Failed to create booking" }));
-};
+function detail(req, res) {
+  const { title, description, price, location } = req.body;
+  const newProperty = { title, description, price, location };
+  res.render('properties/detail', { property: newProperty });
+}
 
-// find a booking by its id
-exports.findBookingById = (req, res) => {
-  Booking.findById(req.params.id)
-    .then(booking => res.json(booking))
-    .catch(err => res.status(404).json({ error: "Booking not found" }));
-};
+function create(req, res) {
+    req.body.owner = req.user._id;
+    Property.create(req.body, function(err) {
+        if (err) return res.render('properties/new');
+        res.redirect('/properties');
+    });
+}
 
-// update the status of a booking
-exports.updateBookingStatus = (req, res) => {
-  Booking.findByIdAndUpdate(
-    req.params.id,
-    { $set: { status: req.body.status, updated_at: new Date() } },
-    { new: true }
-  )
-    .then(booking => res.json(booking))
-    .catch(err => res.status(400).json({ error: "Failed to update booking status" }));
-};
+function show(req, res) {
+    Property.findById(req.params.id, function(err, property) {
+        res.render('properties/show', { property });
+    });
+}
 
-// delete a booking
-exports.deleteBooking = (req, res) => {
-  Booking.findByIdAndDelete(req.params.id)
-    .then(() => res.json({ success: true }))
-    .catch(err => res.status(400).json({ error: "Failed to delete booking" }));
-};
+function deleteProperty(req, res) {
+    Property.findByIdAndRemove(req.params.id, function(err) {
+        res.redirect('/properties');
+    });
+}
