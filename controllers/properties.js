@@ -7,7 +7,6 @@ module.exports = {
     show,
     detail,
     delete: deleteProperty,
-    addReview
 }
 
 function index(req, res) {
