@@ -1,11 +1,13 @@
 const Property = require('../models/property');
+const Comment = require('../models/comment');
 module.exports = {
     index,
     new: newProperty,
     create,
     show,
     detail,
-    delete: deleteProperty
+    delete: deleteProperty,
+    addReview
 }
 
 function index(req, res) {

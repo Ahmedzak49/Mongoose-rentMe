@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('passport');
+const reviewsController = require('../controllers/reviews');
+
 // Only do the following if fetch is not
 // included in Node already and you installed
 // node-fetch version 2
@@ -37,5 +39,7 @@ router.get('/logout', function(req, res) {
     res.redirect('/movies');
   });
 });
+
+router.post('/properties/:id/reviews', reviewsController.addReview);
 
 module.exports = router;
