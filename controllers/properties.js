@@ -40,7 +40,7 @@ function show(req, res) {
 }
 
 function deleteProperty(req, res) {
-    Property.findByIdAndRemove(req.params.id, function(err) {
+    Property.findByIdAndRemove({_id: req.params.id, owner: req.owner}, function(err) {
         res.redirect('/properties');
     });
 }
