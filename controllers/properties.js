@@ -31,17 +31,15 @@ function detail(req, res) {
 }
 
 function create(req, res) {
-    const property = new Property(req.body);
-    if (req.file) {
-      property.photo.data = req.file.buffer;
-      property.photo.contentType = req.file.mimetype;
-    }
-    property.save(function(err) {
-      if (err) return res.render('properties/new');
-      res.redirect('/properties');
-    });
-  }
+    req.body.owner = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
 
+    Property.create(req.body, function(err) {
+        if (err) return res.render('properties/new');
+        res.redirect('/properties');
+    });
+}
 
 function show(req, res) {
     Property.findById(req.params.id, function(err, property) {

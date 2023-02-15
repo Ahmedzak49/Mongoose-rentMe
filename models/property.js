@@ -68,12 +68,10 @@ const propertySchema = new Schema({
     required: true,
     min: 1
   },
-  photos: [
-    {
-      data: { type: Buffer, required: true },
-      contentType: { type: String, required: true }
-    }
-  ],
+  photo: {
+    type: String,
+    required: true
+  },
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'User',

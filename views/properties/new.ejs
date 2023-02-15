@@ -1,33 +1,32 @@
 <%- include('../partials/header', { Title: 'New Property' }) %>
 
-<form id="new-form" action="/properties" method="POST" enctype="multipart/form-data">
-  <label>title:</label>
-  <input type="text" name="title">
-  <label>description:</label>
-  <input type="text" name="description">
-  <label>type:</label>
-  <select name="type">
-    <option value="Apartment">Apartment</option>
-    <option value="House">House</option>
-    <option value="Condo">Condo</option>
-    <option value="TownHouse">TownHouse</option>
-  </select>
-  <label>address:</label>
-  <input type="text" name="address">
-  <label>city:</label>
-  <input type="text" name="city">
-  <label>state:</label>
-  <input type="text" name="state">
-  <label>zip:</label>
-  <input type="text" name="zip">
-  <label>price:</label>
-  <input type="number" name="price">
-  <label>beds:</label>
-  <input type="number" name="beds">
-  <label>photo:</label>
-  <input type="file" name="photo">
-  <input type="submit" value="Add property">
-</form>
+<form id="new-form" action="/properties" method="POST">
+    <label>title</label>
+    <input type="text" name="title">
+    <label>description:</label>
+    <input type="text" name="description">
+    <label>type</label>
+    <select name="type">
+      <option value="Apartment">Apartment</option>
+      <option value="House">House</option>
+      <option value="Condo">Condo</option>
+      <option value="TownHouse">TownHouse</option>
+    </select>
+      <label>address:</label>
+      <input type="text" name="address">
+      <label>city:</label>
+      <input type="text" name="city">
+      <label>state:</label>
+      <input type="text" name="state">
+      <label>zip:</label>
+      <input type="text" name="zip">
+      <label>price:</label>
+      <input type="number" name="price">
+      <label>beds:</label>
+      <input type="number" name="beds">
+      <label>photo:</label>
+      <input type="text" name="photo">
+    <input type="submit" value="Add property">
+  </form>
 
 <%- include('../partials/footer') %>
-

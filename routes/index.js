@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-var upload = require('../multer-config');
 
 
 // Only do the following if fetch is not
@@ -24,14 +23,17 @@ router.get('/auth/google', passport.authenticate(
   }
 ));
 
-router.get('/oauth2callback', passport.authenticate(
-  'google',
-  {
-    successRedirect: '/',
-    // Change to what's best for YOUR app
-    failureRedirect: '/'
-  }
-));
+router.get('/oauth2callback', function (req, res, next) {
+  const redirectTo = req.session.redirectTo;
+  delete req.session.redirectTo;
+  passport.authenticate(
+    'google',
+    {
+      successRedirect: redirectTo || '/', //-> replace '/' as desired
+      failureRedirect: '/'
+    }
+  )(req, res, next);  // Call the middleware returned by passport
+});
 
 router.get('/logout', function(req, res) {
   req.logout(function() {
@@ -40,20 +42,7 @@ router.get('/logout', function(req, res) {
   });
 });
 
-// handle form submission for creating a new property
-router.post('/', upload.array('photos', 10), function(req, res) {
-  const property = new Property(req.body);
-  if (req.files) {
-    property.photos = req.files.map(file => ({
-      data: file.buffer,
-      contentType: file.mimetype
-    }));
-  }
-  property.save(function(err) {
-    if (err) return res.render('properties/new');
-    res.redirect('/properties');
-  });
-});
+
 
 
 module.exports = router;
