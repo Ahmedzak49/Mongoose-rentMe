@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const passport = require('passport');
-const reviewsController = require('../controllers/reviews');
+var passport = require('passport');
+var upload = require('../multer-config');
+
 
 // Only do the following if fetch is not
 // included in Node already and you installed
@@ -39,6 +40,18 @@ router.get('/logout', function(req, res) {
   });
 });
 
+// handle form submission for creating a new property
+router.post('/', upload.single('photo'), function(req, res) {
+  const property = new Property(req.body);
+  if (req.file) {
+    property.photo.data = req.file.buffer;
+    property.photo.contentType = req.file.mimetype;
+  }
+  property.save(function(err) {
+    if (err) return res.render('properties/new');
+    res.redirect('/properties');
+  });
+});
 
 
 module.exports = router;

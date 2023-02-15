@@ -1,23 +1,24 @@
 <%- include('../partials/header') %>
 
 <table id="list">
-    <thead>
+  <thead>
+    <tr>
+      <th>photo</th>
+      <th>title</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% properties.forEach(function(property) { %>
       <tr>
-        <th>photo</th>
-        <th>title</th>
-        <th>price</th>
+        <td><img src="<%= property.photo %>"></td>
+        <td><%= property.title %></td>
+        <td><%= property.price %></td>
+        <td><a href="/properties/<%= property._id %>">DETAILS</a></td>
       </tr>
-    </thead>
-    <tbody>
-      <% properties.forEach(function(m) { %>
-        <tr>
-          <td>< img src="<%= p.photo %>"></td>
-          <td><%= p.title %></td>
-          <td><%= p.price %></td>
-          <td><a href="/properties/<%= p._id %>">DETAILS</a></td>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+    <% }); %>
+  </tbody>
+</table>
 
 <%- include('../partials/footer') %>
+

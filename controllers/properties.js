@@ -11,9 +11,14 @@ module.exports = {
 
 function index(req, res) {
     Property.find({}, function(err, properties) {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+      } else {
         res.render('properties/index', { Title: 'All Properties', properties });
+      }
     });
-}
+  }
 
 function newProperty(req, res) {
     res.render('properties/new', {Title: 'Add a new Property'});
@@ -26,15 +31,17 @@ function detail(req, res) {
 }
 
 function create(req, res) {
-    req.body.owner = req.user._id;
-    req.body.userName = req.user.name;
-    req.body.userAvatar = req.user.avatar;
-
-    Property.create(req.body, function(err) {
-        if (err) return res.render('properties/new');
-        res.redirect('/properties');
+    const property = new Property(req.body);
+    if (req.file) {
+      property.photo.data = req.file.buffer;
+      property.photo.contentType = req.file.mimetype;
+    }
+    property.save(function(err) {
+      if (err) return res.render('properties/new');
+      res.redirect('/properties');
     });
-}
+  }
+
 
 function show(req, res) {
     Property.findById(req.params.id, function(err, property) {

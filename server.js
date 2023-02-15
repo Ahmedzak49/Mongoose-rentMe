@@ -5,8 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
+var multer = require('multer');
+var upload = require('./multer-config');
 
-// Load the "secrets" in the .env file
 require('dotenv').config();
 // Connect to the MongoDB database
 require('./config/database');
@@ -49,6 +50,10 @@ app.use('/users', usersRouter);
 // proper routes start with /movies
 app.use('/', reviewsRouter);
 app.use('/properties', propertiesRouter);
+// Handle file uploads
+app.post('/upload', upload.single('photo'), function(req, res) {
+  res.send('File uploaded successfully');
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
