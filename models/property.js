@@ -68,10 +68,12 @@ const propertySchema = new Schema({
     required: true,
     min: 1
   },
-  photo: {
-    type: String,
-    required: true
-  },
+  photos: [
+    {
+      data: { type: Buffer, required: true },
+      contentType: { type: String, required: true }
+    }
+  ],
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'User',
@@ -79,7 +81,7 @@ const propertySchema = new Schema({
 },
   userName: String,
   userAvatar: String,
-  
+
   reviews: [reviewSchema]
 }, {
   timestamps: true

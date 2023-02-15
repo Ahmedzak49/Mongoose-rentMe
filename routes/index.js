@@ -41,11 +41,13 @@ router.get('/logout', function(req, res) {
 });
 
 // handle form submission for creating a new property
-router.post('/', upload.single('photo'), function(req, res) {
+router.post('/', upload.array('photos', 10), function(req, res) {
   const property = new Property(req.body);
-  if (req.file) {
-    property.photo.data = req.file.buffer;
-    property.photo.contentType = req.file.mimetype;
+  if (req.files) {
+    property.photos = req.files.map(file => ({
+      data: file.buffer,
+      contentType: file.mimetype
+    }));
   }
   property.save(function(err) {
     if (err) return res.render('properties/new');
