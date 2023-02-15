@@ -36,8 +36,12 @@ function create(req, res) {
     req.body.userAvatar = req.user.avatar;
 
     Property.create(req.body, function(err) {
-        if (err) return res.render('properties/new');
-        res.redirect('/properties');
+        if (err) {
+            console.error(err);
+            res.status(500).send('Server Error');
+        } else {
+            res.redirect('/properties');
+        }
     });
 }
 
