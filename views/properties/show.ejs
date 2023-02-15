@@ -3,6 +3,9 @@
 <h1><%= property.title %></h1>
 
 <p><strong>Address:</strong> <%= property.address %></p>
+<p><strong>State:</strong> <%= property.state %></p>
+<p><strong>City:</strong> <%= property.city %></p>
+<p><strong>Postal Code:</strong> <%= property.zip %></p>
 
 <p><strong>Description:</strong> <%= property.description %></p>
 
@@ -17,6 +20,7 @@
 
 
 <a href="/properties/<%= property._id %>/edit">Edit</a>
-<form action="/properties/<%= property._id %>?_method=DELETE" method="POST">
-  <button>Delete</button>
-</form>
+<form action="/properties/<%= property._id %>/?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+

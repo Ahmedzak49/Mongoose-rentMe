@@ -1,13 +1,21 @@
 const Property = require('../models/property');
 
-module.exports = {
+function logDeleteRequest(req, res, next) {
+    if (req.method === "DELETE") {
+      console.log(`Received a DELETE request for ${req.url}`);
+    }
+    next();
+  }
+
+  module.exports = {
     index,
     new: newProperty,
-    create,
     show,
     detail,
+    create,
     delete: deleteProperty,
-}
+    logDeleteRequest
+  };
 
 function index(req, res) {
     Property.find({}, function(err, properties) {
@@ -57,7 +65,13 @@ function show(req, res) {
 }
 
 function deleteProperty(req, res) {
-    Property.findByIdAndRemove({_id: req.params.id, owner: req.owner}, function(err) {
+    Property.findByIdAndRemove({_id: req.params.id, owner: req.user._id}, function(err) {
+
+      if (err) {
+        console.error(err);
+        res.status(500).send('Server Error');
+      } else {
         res.redirect('/properties');
+      }
     });
-}
+  }

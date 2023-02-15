@@ -20,4 +20,8 @@ router.get('/:id/details', propertyCtrl.detail);
 // POST /properties (handle the new form being submitted)
 router.post('/', ensureLoggedIn, propertyCtrl.create);
 
+// DELETE /properties/:id (handle delete request for a property)
+router.delete('/:id', ensureLoggedIn, propertyCtrl.logDeleteRequest, propertyCtrl.delete);
+
 module.exports = router;
+
