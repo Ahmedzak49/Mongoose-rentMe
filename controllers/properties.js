@@ -25,10 +25,15 @@ function newProperty(req, res) {
 }
 
 function detail(req, res) {
-  const { title, description, price, location } = req.body;
-  const newProperty = { title, description, price, location };
-  res.render('properties/detail', { property: newProperty });
-}
+    Property.findById(req.params.id, function(err, property) {
+      if (err || !property) {
+        console.error(err);
+        res.status(404).send('Property not found');
+      } else {
+        res.render('properties/show', { property, Title: "Properties Details" });
+      }
+    });
+  }
 
 function create(req, res) {
     req.body.owner = req.user._id;

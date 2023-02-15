@@ -1,0 +1,22 @@
+<!-- views/properties/show.ejs -->
+
+<h1><%= property.title %></h1>
+
+<p><strong>Address:</strong> <%= property.address %></p>
+
+<p><strong>Description:</strong> <%= property.description %></p>
+
+<p><strong>Price:</strong> <%= property.price %></p>
+
+<p><strong>Bedrooms:</strong> <%= property.beds %></p>
+
+<p><strong>Bathrooms:</strong> <%= property.baths %></p>
+
+<p><strong>Photos:</strong> <%= property.photo %></p>
+
+
+
+<a href="/properties/<%= property._id %>/edit">Edit</a>
+<form action="/properties/<%= property._id %>?_method=DELETE" method="POST">
+  <button>Delete</button>
+</form>

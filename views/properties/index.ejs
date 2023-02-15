@@ -14,11 +14,11 @@
         <td><img src="<%= property.photo %>"></td>
         <td><%= property.title %></td>
         <td><%= property.price %></td>
-        <td><a href="/properties/<%= property._id %>">DETAILS</a></td>
+        <td><a href="/properties/<%= property._id %>/details"><%= property.title %></a></td>
+
       </tr>
     <% }); %>
   </tbody>
 </table>
 
 <%- include('../partials/footer') %>
-
