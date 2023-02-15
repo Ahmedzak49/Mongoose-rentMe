@@ -11,12 +11,12 @@ module.exports = {
 
 function index(req, res) {
     Property.find({}, function(err, properties) {
-        res.render('properties/index', { title: 'All Properties', properties });
+        res.render('properties/index', { Title: 'All Properties', properties });
     });
 }
 
 function newProperty(req, res) {
-    res.render('properties/new');
+    res.render('properties/new', {Title: 'Add a new Property'});
 }
 
 function detail(req, res) {
@@ -27,6 +27,9 @@ function detail(req, res) {
 
 function create(req, res) {
     req.body.owner = req.user._id;
+    req.body.userName = req.user.name;
+    req.body.userAvatar = req.user.avatar;
+
     Property.create(req.body, function(err) {
         if (err) return res.render('properties/new');
         res.redirect('/properties');
@@ -35,7 +38,7 @@ function create(req, res) {
 
 function show(req, res) {
     Property.findById(req.params.id, function(err, property) {
-        res.render('properties/show', { property });
+        res.render('properties/show', { property, Title: "Properties Details" });
     });
 }
 

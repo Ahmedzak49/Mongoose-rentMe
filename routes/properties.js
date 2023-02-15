@@ -7,5 +7,11 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 // GET /properties (display all properties)
 router.get('/', propertyCtrl.index);
+// Get/properties/new (display a form for entering a new property)
+router.get('/new', ensureLoggedIn, propertyCtrl.new);
+// POST /properties (handle the new form being submitted)
+router.post('/', ensureLoggedIn, propertyCtrl.create);
+
+
 
 module.exports = router;

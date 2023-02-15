@@ -76,14 +76,14 @@ const propertySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
-    reviews: [reviewSchema]
+},
+  userName: String,
+  userAvatar: String,
+  
+  reviews: [reviewSchema]
+}, {
+  timestamps: true
+
 });
 
-const Property = mongoose.model('property', propertySchema);
-
-module.exports = Property;
+module.exports = mongoose.model('property', propertySchema);

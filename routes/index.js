@@ -10,9 +10,8 @@ const fetch = require('node-fetch');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  const property = req.query.property;
-  console.log('property: ${property}');
-  res.render('index');
+
+  res.render('index', {Title: 'indexPage'});
 });
 router.get('/auth/google', passport.authenticate(
   // Which passport strategy is being used?
@@ -27,9 +26,9 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/movies',
+    successRedirect: '/',
     // Change to what's best for YOUR app
-    failureRedirect: '/movies'
+    failureRedirect: '/'
   }
 ));
 
@@ -40,6 +39,6 @@ router.get('/logout', function(req, res) {
   });
 });
 
-router.post('/properties/:id/reviews', reviewsController.addReview);
+
 
 module.exports = router;

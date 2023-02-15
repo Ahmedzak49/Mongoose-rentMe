@@ -2,7 +2,7 @@ const Property = require('../models/property');
 
 module.exports = {
   create,
-  delete: deleteReview
+  delete: deleteReview,
 };
 
 async function create(req, res) {
