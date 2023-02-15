@@ -1,5 +1,5 @@
 const Property = require('../models/property');
-const Comment = require('../models/comment');
+
 module.exports = {
     index,
     new: newProperty,

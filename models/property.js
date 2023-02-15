@@ -1,6 +1,27 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Comment = require('./comment');
+
+const reviewSchema = new Schema({
+  content: {
+    type: String,
+    required: true
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+    default: 5
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  userName: String,
+  userAvatar: String
+}, {
+  timestamps: true
+});
 
 const propertySchema = new Schema({
   title: {
@@ -60,22 +81,7 @@ const propertySchema = new Schema({
     type: Date,
     default: Date.now
   },
-  comments: [Comment.schema],
-  review: {
-    type: String,
-    default: ''
-  },
-  rating: {
-    type: Number,
-    default: 0,
-    min: 0,
-    max: 5
-  },
-  reviews: [{
-    author: { type: Schema.Types.ObjectId, ref: 'User' },
-    rating: { type: Number },
-    review: { type: String },
-  }],
+    reviews: [reviewSchema]
 });
 
 const Property = mongoose.model('property', propertySchema);

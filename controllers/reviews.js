@@ -1,10 +1,11 @@
 const Property = require('../models/property');
 
 module.exports = {
-  addReview,
+  create,
+  delete: deleteReview
 };
 
-async function addReview(req, res) {
+async function create(req, res) {
   try {
     const property = await Property.findById(req.params.id);
     if (!property) {
@@ -23,4 +24,8 @@ async function addReview(req, res) {
   } catch (error) {
     res.status(500).send({ error: 'Failed to add review' });
   }
+}
+
+async function deleteReview() {
+
 }
