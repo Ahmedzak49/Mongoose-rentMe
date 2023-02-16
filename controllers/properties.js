@@ -11,6 +11,8 @@ function logDeleteRequest(req, res, next) {
     index,
     new: newProperty,
     show,
+    edit,
+    update,
     detail,
     create,
     delete: deleteProperty,
@@ -63,6 +65,25 @@ function show(req, res) {
         res.render('properties/show', { property, Title: "Properties Details" });
     });
 }
+
+function edit(req, res) {
+  Property.findById(req.params.id, function(err, property) {
+    if (err) return res.redirect('/properties');
+    res.render('properties/edit', { property });
+  });
+}
+
+function update(req, res) {
+  Property.findByIdAndUpdate({_id: req.params.id, owner:req.user._id}, req.body,{new: true},
+    function(err, property) {
+      console.log(err)
+    if (err || !property) return res.redirect('/properties');
+      res.redirect(`/properties/${req.params.id}`);
+    }
+  );
+}
+
+
 
 function deleteProperty(req, res) {
     Property.findByIdAndRemove({_id: req.params.id, owner: req.user._id}, function(err) {
