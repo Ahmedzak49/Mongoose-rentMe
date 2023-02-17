@@ -6,7 +6,7 @@
 
  <div id="description" align="center">
       
- ### <a href="https://ahmedzak49.github.io/Spaceman-Star-Wars-Theme-/">Click to Demo</a>
+ ### <a href="http://localhost:3000">Click to Demo</a>
 
       
   ##### Zakariye Ahmed
@@ -15,7 +15,7 @@
 
   ## :pencil: Description
 
-Spaceman, also known as Hangman, is a classic word guessing game where the player attempts to guess a hidden word by suggesting letters or phrases. The player starts with a set number of lives and loses one life every time they guess incorrectly. The game ends when the player successfully guesses the word or loses all of their lives.
+This web application allows users to post house listings with details and images of the house they want to sell or rent. Users can enter the address, state, city, postal code, description, price, bedrooms, bathrooms, type, and upload a photo of the house. The application provides an interface for users to edit or delete their listings.
 
  </div>
   
@@ -43,21 +43,21 @@ Spaceman, also known as Hangman, is a classic word guessing game where the playe
             ![Markdown](https://img.shields.io/badge/-Markdown-05122A?style=flat&logo=markdown)
               ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
              
-## 🎮  How To Play
-<strong>Step 1.</strong> Start the game by running the Demo in the readME.<br>
-<strong>Step 2.</strong> The computer will randomly select a word from a pre-determined list of words.<br>
-<strong>Step 3.</strong> The player will be shown the number of letters in the word and will be prompted to guess a letter.<br>
-<strong>Step 4.</strong> If the letter is in the word, the correct positions of the letter will be revealed.<br>
-<strong>Step 5.</strong> If the letter is not in the word, the player loses a life.<br>
-<strong>Step 6.</strong> The player can also make a guess for the entire word at any point, if the player guess the word correctly then player wins otherwise player lose.<br>
-<strong>Step 7.</strong> The game ends when the player successfully guesses the word or loses all of their lives.
+## Usage:
+<strong>Step 1.</strong> Navigate to http://localhost:3000 in your web browser.<br>
+<strong>Step 2.</strong> Click on the "Post a Listing" button to create a new listing.<br>
+<strong>Step 3.</strong> Fill out the form with the details of the house, including the photo.<br>
+<strong>Step 4.</strong> Click on "Save Listing" to create the listing.<br>
+<strong>Step 5.</strong> Click on "View Property" to view the details of the property.<br>
+<strong>Step 6.</strong> Click on "Edit" to update the details of the property.<br>
+<strong>Step 7.</strong> Click on "Delete" to remove the property from the listings.<br>
 
 ## :ice_cube: Upcoming Features
 
-🎙️  Add character's voice audio when the game has started.<br>
-🔊  Add sound a effect when keyboard is clicked.<br>
-🎙️  Add character's voice audio when the game has ended.<br>
-🌌  Add background theme animation while game is in play.<br>
+ Add property owner review & rating.<br>
+ Add a comment section under a post.<br>
+ Being able to update/edit/delete comment.<br>
+ Being able to upload multi photos file.<br>
 </div>
 
 
