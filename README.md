@@ -1,5 +1,5 @@
 <div>
-<img src="https://user-images.githubusercontent.com/108743041/215025638-7beacce8-4100-419c-9fa3-c95689e20cce.png"></img>
+<img src="https://user-images.githubusercontent.com/108743041/219561929-fdefbe60-e670-4e07-8de0-3bfb9c83040b.JPG"></img>
 </div>
 
 #
@@ -26,13 +26,13 @@ This web application allows users to post house listings with details and images
 
 <details><summary>Home Page</summary><img src="https://user-images.githubusercontent.com/108743041/219559883-26e67ffb-6cd5-4653-8fcf-4860fc7b2328.JPG"></img></details>
 
-<details><summary>Game in Play</summary><img src="https://user-images.githubusercontent.com/108743041/215023044-bb89db4d-6bcd-41f4-b1f6-33e74f2f599e.png"></img></details>
+<details><summary>OAUTH Log-in Page</summary><img src="https://user-images.githubusercontent.com/108743041/219560400-9dd4bbc9-53c5-467b-a2bf-b0e67b9c2250.JPG"></img></details>
 
-<details><summary>You Win!!!</summary><img src="https://user-images.githubusercontent.com/108743041/215023223-23f8304f-3cf0-4a48-9946-94cfc27043d6.png"></img></details>
+<details><summary>House Listing Page!!!</summary><img src="https://user-images.githubusercontent.com/108743041/219560738-9035ddd4-630f-463d-8919-b18f4474df78.JPG"></img></details>
 
-<details><summary>You Lose!</summary><img src="https://user-images.githubusercontent.com/108743041/215023628-a7d432ee-d553-469a-9161-254b769489ed.png"></img></details>
+<details><summary>Add House Page!</summary><img src="https://user-images.githubusercontent.com/108743041/219561035-9d6d5ee5-2a2b-4556-be25-65cabc22cba2.JPG"></img></details>
 
-<details><summary>Wireframe</summary><img width="1332" alt="Screenshot 2023-01-27 at 7 27 41 AM" src="https://user-images.githubusercontent.com/108743041/215141203-848b5f0b-6f5b-45f5-8d00-a9118f800a4e.png"></img></details>
+<details><summary>Wireframe</summary><img width="1332" alt="Screenshot 2023-01-27 at 7 27 41 AM" src="https://user-images.githubusercontent.com/108743041/219561743-59f59fdf-fc53-4d05-a7a4-fccf30fea327.JPG"></img></details>
 
 ## :computer: Technologies Used
   ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
@@ -59,6 +59,7 @@ This web application allows users to post house listings with details and images
  Being able to update/edit/delete comment.<br>
  Being able to upload multi photos file.<br>
 </div>
+
 
 
 
