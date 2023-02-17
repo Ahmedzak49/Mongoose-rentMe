@@ -6,7 +6,7 @@
 
  <div id="description" align="center">
       
- ### <a href="http://localhost:3000">Click to Demo</a>
+ ### <a href="https://mongoose-rentme.herokuapp.com/">Click to Demo</a>
 
       
   ##### Zakariye Ahmed
@@ -26,7 +26,7 @@ This web application allows users to post house listings with details and images
 
 <details><summary>Home Page</summary><img src="https://user-images.githubusercontent.com/108743041/219559883-26e67ffb-6cd5-4653-8fcf-4860fc7b2328.JPG"></img></details>
 
-<details><summary>OAUTH Log-in Page</summary><img src="https://user-images.githubusercontent.com/108743041/219560400-9dd4bbc9-53c5-467b-a2bf-b0e67b9c2250.JPG"></img></details>
+<details><summary>OAUTH Log-in Page</summary><img src="https://user-images.githubusercontent.com/108743041/219686853-a663a4c3-f22f-4d03-bc32-23faee1d71c5.JPG"></img></details>
 
 <details><summary>House Listing Page!!!</summary><img src="https://user-images.githubusercontent.com/108743041/219560738-9035ddd4-630f-463d-8919-b18f4474df78.JPG"></img></details>
 
@@ -44,7 +44,7 @@ This web application allows users to post house listings with details and images
               ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
              
 ## Usage:
-<strong>Step 1.</strong> Navigate to http://localhost:3000 in your web browser.<br>
+<strong>Step 1.</strong> Navigate to https://mongoose-rentme.herokuapp.com/ in your web browser.<br>
 <strong>Step 2.</strong> Click on the "Post a Listing" button to create a new listing.<br>
 <strong>Step 3.</strong> Fill out the form with the details of the house, including the photo.<br>
 <strong>Step 4.</strong> Click on "Save Listing" to create the listing.<br>
@@ -59,6 +59,7 @@ This web application allows users to post house listings with details and images
  Being able to update/edit/delete comment.<br>
  Being able to upload multi photos file.<br>
 </div>
+
 
 
 
