@@ -24,6 +24,7 @@ nav {
   align-items: center;
 }
 
+
 ul {
   list-style: none;
   display: flex;
@@ -130,4 +131,28 @@ footer p {
 
 .property-card p {
   text-align: center;
+}
+h1 {
+  text-align: center;
+}
+.property-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.property-card a {
+  align-self: center;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-image: url('/images/login-background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }

@@ -11,7 +11,7 @@ const fetch = require('node-fetch');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  res.render('index', {Title: 'indexPage'});
+  res.render('index', {Title: 'rentMe'});
 });
 router.get('/auth/google', passport.authenticate(
   // Which passport strategy is being used?

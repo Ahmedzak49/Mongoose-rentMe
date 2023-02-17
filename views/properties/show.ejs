@@ -1,5 +1,5 @@
 <!-- views/properties/show.ejs -->
-
+<link rel='stylesheet' href='/public/stylesheets/style.css' />
 <h1><%= property.title %></h1>
 
 <p><strong>Address:</strong> <%= property.address %></p>
@@ -23,4 +23,3 @@
 <form action="/properties/<%= property._id %>/?_method=DELETE" method="POST">
     <button type="submit">Delete</button>
   </form>
-
