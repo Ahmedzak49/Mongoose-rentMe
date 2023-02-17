@@ -24,7 +24,7 @@ This web application allows users to post house listings with details and images
 
   ## :camera_flash: Screenshots 
 
-<details><summary>Starting Board</summary><img src="https://user-images.githubusercontent.com/108743041/215022793-94b1f32d-a9a5-4d94-991e-6c40d5e58978.png"></img></details>
+<details><summary>Home Page</summary><img src="https://user-images.githubusercontent.com/108743041/219559883-26e67ffb-6cd5-4653-8fcf-4860fc7b2328.JPG"></img></details>
 
 <details><summary>Game in Play</summary><img src="https://user-images.githubusercontent.com/108743041/215023044-bb89db4d-6bcd-41f4-b1f6-33e74f2f599e.png"></img></details>
 
@@ -59,7 +59,6 @@ This web application allows users to post house listings with details and images
  Being able to update/edit/delete comment.<br>
  Being able to upload multi photos file.<br>
 </div>
-
 
 
 
